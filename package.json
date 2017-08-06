@@ -1,0 +1,32 @@
+{
+  "name": "ovh-certbot-dns",
+  "version": "0.0.1",
+  "description": "Respond to certbot dns challenges by updating the DNS zone.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcdado/ovh-certbot-dns"
+  },
+  "keywords": [
+    "ovh",
+    "certbot",
+    "dns",
+    "letsencrypt"
+  ],
+  "author": "David Gasperoni <mcdado@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/mcdado/ovh-certbot-dns#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "eslint": "^4.4.0",
+    "minimist": "^1.2.0",
+    "ovh": "^2.0.1"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0"
+  }
+}
