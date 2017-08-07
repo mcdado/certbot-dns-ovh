@@ -37,7 +37,7 @@ ovh.request('POST', `/domain/zone/${dom.domain}.${dom.tld}/record`, {
 
     const timer = setInterval(() => {
       dns.resolveTxt(`_acme-challenge.${dom.subdomain}.${dom.domain}.${dom.tld}`, (errResolve, records) => {
-        if (records.length > 0) {
+        if (records && records.length > 0) {
           clearInterval(timer);
           process.exit(0);
         }
