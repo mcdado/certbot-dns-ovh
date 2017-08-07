@@ -21,7 +21,7 @@ ovh.request('GET', `/domain/zone/${dom.domain}.${dom.tld}/record`, {
   subDomain: `_acme-challenge.${dom.subdomain}`,
 }, (recordErr, recordRes) => {
   if (recordErr) {
-    console.error(`error: ${recordErr}`);
+    console.error(recordErr);
     process.exit(1);
   }
 

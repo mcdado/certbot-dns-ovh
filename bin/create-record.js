@@ -23,13 +23,13 @@ ovh.request('POST', `/domain/zone/${dom.domain}.${dom.tld}/record`, {
   subDomain: `_acme-challenge.${dom.subdomain}`,
   target: certbotValidation,
   ttl: 1,
-}, (recordErr, recordRes) => {
+}, (recordErr) => {
   if (recordErr) {
     console.error(recordErr);
     process.exit(1);
   }
 
-  ovh.request('POST', `/domain/zone/${dom.domain}.${dom.tld}/refresh`, (refreshErr, refreshRes) => {
+  ovh.request('POST', `/domain/zone/${dom.domain}.${dom.tld}/refresh`, (refreshErr) => {
     if (refreshErr) {
       console.error(refreshErr);
       process.exit(1);
@@ -47,6 +47,6 @@ ovh.request('POST', `/domain/zone/${dom.domain}.${dom.tld}/record`, {
     setTimeout(() => {
       clearInterval(timer);
       process.exit(0);
-    }, Number(process.env.DNS_TIMEOUT || 0) * 1000|| 60000);
+    }, Number(process.env.DNS_TIMEOUT || 0) * 1000 || 60000);
   });
 });
