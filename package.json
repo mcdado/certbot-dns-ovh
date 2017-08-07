@@ -23,7 +23,8 @@
     "dotenv": "^4.0.0",
     "eslint": "^4.4.0",
     "minimist": "^1.2.0",
-    "ovh": "^2.0.1"
+    "ovh": "^2.0.1",
+    "parse-domain": "^1.1.0"
   },
   "devDependencies": {
     "eslint-config-airbnb-base": "^11.3.1",
