@@ -2,6 +2,7 @@
 
 require('dotenv').config();
 
+const dns = require('dns');
 const argv = require('minimist')(process.argv.slice(2));
 const parseDomain = require('parse-domain');
 
@@ -24,15 +25,28 @@ ovh.request('POST', `/domain/zone/${dom.domain}.${dom.tld}/record`, {
   ttl: 1,
 }, (recordErr, recordRes) => {
   if (recordErr) {
-    console.error(`error: ${recordErr}`);
+    console.error(recordErr);
     process.exit(1);
   }
 
   ovh.request('POST', `/domain/zone/${dom.domain}.${dom.tld}/refresh`, (refreshErr, refreshRes) => {
     if (refreshErr) {
       console.error(refreshErr);
+      process.exit(1);
     }
-    console.log(refreshRes);
-    process.exit(0);
+
+    const timer = setInterval(() => {
+      dns.resolveTxt(`_acme-challenge.${dom.subdomain}.${dom.domain}.${dom.tld}`, (errResolve, records) => {
+        if (records.length > 0) {
+          clearInterval(timer);
+          process.exit(0);
+        }
+      });
+    }, 5000);
+
+    setTimeout(() => {
+      clearInterval(timer);
+      process.exit(0);
+    }, Number(process.env.DNS_TIMEOUT || 0) * 1000|| 60000);
   });
 });
