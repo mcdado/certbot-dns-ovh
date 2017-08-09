@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
-require('dotenv').config();
-
+const path = require('path');
 const dns = require('dns');
 const bluebird = require('bluebird');
 const argv = require('minimist')(process.argv.slice(2));
 const parseDomain = require('parse-domain');
+
+const env = path.resolve(__dirname, '../.env');
+require('dotenv').config({ path: env });
 
 const certbotDomain = process.env.CERTBOT_DOMAIN;
 const certbotValidation = process.env.CERTBOT_VALIDATION;
