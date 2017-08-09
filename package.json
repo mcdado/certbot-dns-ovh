@@ -20,6 +20,7 @@
   "license": "MIT",
   "homepage": "https://github.com/mcdado/ovh-certbot-dns#readme",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "dotenv": "^4.0.0",
     "minimist": "^1.2.0",
     "ovh": "^2.0.1",
