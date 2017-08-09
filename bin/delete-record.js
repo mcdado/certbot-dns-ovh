@@ -32,6 +32,9 @@ ovh.request('GET', `/domain/zone/${dom.domain}.${dom.tld}/record`, {
   ovh.request('DELETE', `/domain/zone/${dom.domain}.${dom.tld}/record/${recordRes[0]}`, (deleteErr, deleteRes) => {
     if (deleteErr) {
       console.error(deleteErr);
+      process.exit(2);
     }
+
+    process.exit(0);
   });
 });
