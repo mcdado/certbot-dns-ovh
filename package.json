@@ -1,14 +1,13 @@
 {
-  "name": "ovh-certbot-dns",
-  "version": "0.0.1",
-  "description": "Respond to certbot dns challenges by updating the DNS zone.",
-  "main": "index.js",
+  "name": "certbot-dns-ovh",
+  "version": "0.1.0",
+  "description": "Respond to Certbot dns challenges by updating your DNS zone on OVH.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mcdado/ovh-certbot-dns"
+    "url": "git+https://github.com/mcdado/certbot-dns-ovh"
   },
   "keywords": [
     "ovh",
@@ -18,7 +17,7 @@
   ],
   "author": "David Gasperoni <mcdado@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/mcdado/ovh-certbot-dns#readme",
+  "homepage": "https://github.com/mcdado/certbot-dns-ovh#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
     "dotenv": "^4.0.0",
