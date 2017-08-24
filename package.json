@@ -1,6 +1,6 @@
 {
   "name": "ovh-certbot-dns",
-  "version": "0.0.1",
+  "version": "0.0.2a",
   "description": "Respond to certbot dns challenges by updating the DNS zone.",
   "main": "index.js",
   "scripts": {

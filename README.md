@@ -1,16 +1,20 @@
-# OVH DNS API Client for Certbot
+# WARNING: this package is deprecated
+
+This project has been **renamed** to [certbot-dns-ovh](https://www.npmjs.com/package/certbot-dns-ovh). Install that instead.
+
+## OVH DNS API Client for Certbot
 Certbot plugin to respond to DNS-01 challenges by updating the DNS zone in an OVH account.
 
-# Why
+### Why
 There are several use cases for DNS challenge with **Certbot**, for example when the server or machine that need a
 certificate is not directly accessible from the internet. This way, you can secure machines and services in your
 internal network, behind a firewall or VPN. Other use cases could be automating multi-server deploys.
 
-## Prerequisites
+### Prerequisites
 - [Node JS](https://nodejs.org/) ≥ 6.
 - [Certbot](https://certbot.eff.org).
 
-## How to Use
+### How to Use
 0. Download or clone this repo, and then from a terminal enter the directory: `cd ovh-certbot-dns` and run `npm install`.
 
 1. Get an _App Key_ and _App Secret_ from OVH by registering a new app at this URL:
@@ -46,11 +50,11 @@ If you're using a webserver like Nginx, this line could be `@weekly certbot rene
 **NB**: the `certbot renew` command uses the same options as the `certbot certonly` command, so please do not move or delete
 the `ovh-certbot-dns` directory.
 
-## See Also
+### See Also
 https://github.com/ovh/node-ovh
 
-## Author
+### Author
 David Gasperoni
 
-## License
+### License
 MIT
