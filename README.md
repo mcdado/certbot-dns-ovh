@@ -1,6 +1,8 @@
 # Certbot plugin for OVH DNS
 Certbot hook scripts that allow to respond to DNS-01 challenges from _Let's Encrypt_ by updating the DNS zone in an OVH account.
 
+Available on NPM: `npm i certbot-dns-ovh`
+
 # Why and when you might need this
 There are several use cases for DNS challenge with **Certbot**. For example, when the server or machine that needs a
 certificate is not directly accessible from the internet; this way, you can secure machines and services in your
@@ -10,8 +12,8 @@ internal network or company domain, even behind a firewall or VPN. Another examp
 - [Node JS](https://nodejs.org/) ≥ 6.
 - [Certbot](https://certbot.eff.org).
 
-## Instructions
-0. Download or clone this repo, and then from a terminal enter the directory: `cd ovh-certbot-dns` and run `npm install`.
+## Usage
+0. Install via NPM: `certbot-dns-ovh`. Otherwise, you can download or clone this repo, and then from a terminal enter the directory: `cd ovh-certbot-dns` and run `npm install`.
 
 1. Get an _App Key_ and _App Secret_ from OVH by registering a new app at this URL:
 [OVH Developers: Create App](https://eu.api.ovh.com/createApp/)
