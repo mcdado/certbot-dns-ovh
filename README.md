@@ -13,7 +13,7 @@ internal network or company domain, even behind a firewall or VPN. Another examp
 - [Certbot](https://certbot.eff.org).
 
 ## Usage
-0. Install via NPM: `certbot-dns-ovh`. Otherwise, you can download or clone this repo, and then from a terminal enter the directory: `cd ovh-certbot-dns` and run `npm install`.
+0. Install via NPM: `certbot-dns-ovh`. Otherwise, you can download or clone this repo, and then from a terminal enter the directory: `cd certbot-dns-ovh` and run `npm install`.
 
 1. Get an _App Key_ and _App Secret_ from OVH by registering a new app at this URL:
 [OVH Developers: Create App](https://eu.api.ovh.com/createApp/)
@@ -36,7 +36,7 @@ Visit the `validationUrl` and login with the account with the DNS zone to be upd
 As endpoint, the default value is `ovh-eu`.
 
 5. Now you're ready to setup **Certbot**! You can run the following command:  
-`sudo certbot certonly --manual --preferred-challenges=dns --manual-auth-hook '/path/to/ovh-certbot-dns/bin/create-record.js' --manual-cleanup-hook '/path/to/ovh-certbot-dns/bin/delete-record.js' -d www.example.com`.  
+`sudo certbot certonly --manual --preferred-challenges=dns --manual-auth-hook '/path/to/certbot-dns-ovh/bin/create-record.js' --manual-cleanup-hook '/path/to/certbot-dns-ovh/bin/delete-record.js' -d www.example.com`.  
 This command will wait for up to 60 seconds (or more if you raise the value `DNS_TIMEOUT` in your `.env` file).
 
 6. If everything goes right, you will get a certificate! It will be saved at `/etc/letsencrypt/live/www.example.com/fullchain.pem`.
