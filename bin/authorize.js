@@ -12,10 +12,10 @@ const ovh = require('ovh')({
 
 ovh.request('POST', '/auth/credential', {
   accessRules: [
-    { method: 'GET', path: '/*' },
-    { method: 'POST', path: '/*' },
-    { method: 'PUT', path: '/*' },
-    { method: 'DELETE', path: '/*' },
+    { method: 'GET', path: '/domain/zone/*' },
+    { method: 'POST', path: '/domain/zone/*' },
+    { method: 'PUT', path: '/domain/zone/*' },
+    { method: 'DELETE', path: '/domain/zone/*/record' },
   ],
 }, (error, credential) => {
   console.log(error || credential);
