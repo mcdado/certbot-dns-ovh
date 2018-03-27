@@ -15,7 +15,7 @@ ovh.request('POST', '/auth/credential', {
     { method: 'GET', path: '/domain/zone/*' },
     { method: 'POST', path: '/domain/zone/*' },
     { method: 'PUT', path: '/domain/zone/*' },
-    { method: 'DELETE', path: '/domain/zone/*/record' },
+    { method: 'DELETE', path: '/domain/zone/*/record/*' },
   ],
 }, (error, credential) => {
   console.log(error || credential);
