@@ -15,6 +15,7 @@ const certbotValidation = process.env.CERTBOT_VALIDATION;
 const dom = parseDomain(certbotDomain);
 const domain = dom && dom.domain !== '' && dom.tld !== '' ? `${dom.domain}.${dom.tld}` : '';
 const subdomain = dom && dom.subdomain ? dom.subdomain : '';
+const record = dom.subdomain ? `_acme-challenge.${dom.subdomain}` : '_acme-challenge';
 
 const ovh = require('ovh')({
   endpoint: argv.endpoint || process.env.OVH_ENDPOINT || 'ovh-eu',
@@ -53,7 +54,7 @@ resolveDNS.then((servers) => {
   dns.setServers(servers);
   ovh.request('POST', `/domain/zone/${domain}/record`, {
     fieldType: 'TXT',
-    subDomain: `_acme-challenge.${subdomain}`,
+    subDomain: `${record}`,
     target: certbotValidation,
     ttl: 1,
   }, (recordErr) => {
@@ -69,7 +70,7 @@ resolveDNS.then((servers) => {
       }
 
       const timer = setInterval(() => {
-        dns.resolveTxt(`_acme-challenge.${subdomain}.${domain}`, (errResolve, records) => {
+        dns.resolveTxt(`${record}.${domain}`, (errResolve, records) => {
           if (records && records.length > 0) {
             clearInterval(timer);
             process.exit(0);

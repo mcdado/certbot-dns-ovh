@@ -10,6 +10,7 @@ require('dotenv').config({ path: env });
 const certbotDomain = process.env.CERTBOT_DOMAIN;
 
 const dom = parseDomain(certbotDomain);
+const record = dom.subdomain ? `_acme-challenge.${dom.subdomain}` : '_acme-challenge';
 
 const ovh = require('ovh')({
   endpoint: argv.endpoint || process.env.OVH_ENDPOINT || 'ovh-eu',
@@ -20,7 +21,7 @@ const ovh = require('ovh')({
 
 ovh.request('GET', `/domain/zone/${dom.domain}.${dom.tld}/record`, {
   fieldType: 'TXT',
-  subDomain: `_acme-challenge.${dom.subdomain}`,
+  subDomain: `${record}`,
 }, (recordErr, recordRes) => {
   if (recordErr) {
     console.error(recordErr);
