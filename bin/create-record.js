@@ -14,8 +14,7 @@ const certbotValidation = process.env.CERTBOT_VALIDATION;
 
 const dom = parseDomain(certbotDomain);
 const domain = dom && dom.domain !== '' && dom.tld !== '' ? `${dom.domain}.${dom.tld}` : '';
-const subdomain = dom && dom.subdomain ? dom.subdomain : '';
-const record = dom.subdomain ? `_acme-challenge.${dom.subdomain}` : '_acme-challenge';
+const record = dom && dom.subdomain ? `_acme-challenge.${dom.subdomain}` : '_acme-challenge';
 
 const ovh = require('ovh')({
   endpoint: argv.endpoint || process.env.OVH_ENDPOINT || 'ovh-eu',
@@ -25,15 +24,15 @@ const ovh = require('ovh')({
 });
 
 const resolveDNS = new Promise((resolvePromise, rejectPromise) => {
-  dns.resolveNs(domain, (errResolve, records) => {
+  dns.resolveNs(domain, (errResolve, dnsRecords) => {
     if (errResolve) {
       rejectPromise(errResolve);
       throw errResolve;
     }
 
-    bluebird.map(records, (record) => {
+    bluebird.map(dnsRecords, (dnsRecord) => {
       return new Promise((dnsResolve, dnsReject) => {
-        dns.resolve(record, (err, ip) => {
+        dns.resolve(dnsRecord, (err, ip) => {
           if (err) {
             dnsReject(err);
           } else {
