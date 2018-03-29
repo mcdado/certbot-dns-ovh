@@ -65,7 +65,7 @@ resolveDNS.then((servers) => {
     ovh.request('POST', `/domain/zone/${domain}/refresh`, (refreshErr) => {
       if (refreshErr) {
         console.error(refreshErr);
-        process.exit(1);
+        process.exit(2);
       }
 
       const timer = setInterval(() => {
