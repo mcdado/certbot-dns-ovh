@@ -41,7 +41,7 @@ ovh.request('GET', `/domain/zone/${dom.domain}.${dom.tld}/record`, {
   ovh.request('POST', `/domain/zone/${dom.domain}.${dom.tld}/refresh`, (refreshErr) => {
     if (refreshErr) {
       console.error(refreshErr);
-      process.exit(1);
+      process.exit(3);
     }
   });
 
