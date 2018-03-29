@@ -1,6 +1,6 @@
 {
   "name": "certbot-dns-ovh",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Respond to Certbot dns challenges by updating your DNS zone on OVH.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
