@@ -44,7 +44,5 @@ ovh.request('GET', `/domain/zone/${dom.domain}.${dom.tld}/record`, {
         process.exit(3);
       }
     });
-
-    process.exit(0);
   });
 });
