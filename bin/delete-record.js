@@ -36,14 +36,14 @@ ovh.request('GET', `/domain/zone/${dom.domain}.${dom.tld}/record`, {
       console.error(deleteErr);
       process.exit(2);
     }
-
-    ovh.request('POST', `/domain/zone/${dom.domain}.${dom.tld}/refresh`, (refreshErr) => {
-      if (refreshErr) {
-        console.error(refreshErr);
-        process.exit(1);
-      }
-    });
-
-    process.exit(0);
   });
+
+  ovh.request('POST', `/domain/zone/${dom.domain}.${dom.tld}/refresh`, (refreshErr) => {
+    if (refreshErr) {
+      console.error(refreshErr);
+      process.exit(1);
+    }
+  });
+
+  process.exit(0);
 });
