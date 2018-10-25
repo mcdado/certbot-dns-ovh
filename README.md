@@ -1,3 +1,6 @@
+> ⚠️ Note: this module was built before the official plugin.  
+I'd suggest using that if possible: https://certbot-dns-ovh.readthedocs.io/en/stable/
+
 # Certbot plugin for OVH DNS
 Certbot hook scripts that allow to respond to DNS-01 challenges from _Let's Encrypt_ by updating the DNS zone in an OVH account.
 
