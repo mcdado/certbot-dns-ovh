@@ -26,8 +26,6 @@
     "parse-domain": "^1.1.0"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^11.3.2",
-    "eslint-plugin-import": "^2.14.0"
+    "semistandard": "^14.2.0"
   }
 }

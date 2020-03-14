@@ -20,7 +20,7 @@ const ovh = require('ovh')({
   endpoint: argv.endpoint || process.env.OVH_ENDPOINT || 'ovh-eu',
   consumerKey: argv.key || process.env.OVH_CUSTOMER_KEY,
   appKey: argv.app_key || process.env.OVH_APP_KEY,
-  appSecret: argv.app_secret || process.env.OVH_APP_SECRET,
+  appSecret: argv.app_secret || process.env.OVH_APP_SECRET
 });
 
 const resolveDNS = new Promise((resolvePromise, rejectPromise) => {
@@ -55,7 +55,7 @@ resolveDNS.then((servers) => {
     fieldType: 'TXT',
     subDomain: `${record}`,
     target: certbotValidation,
-    ttl: 1,
+    ttl: 1
   }, (recordErr) => {
     if (recordErr) {
       console.error(recordErr);
